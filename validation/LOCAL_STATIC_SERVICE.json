@@ -1,0 +1,58 @@
+{
+  "scope": "Only current standard launcher plus local HTML/JS/CSS bytes; no browser interaction or product flow acceptance.",
+  "command": [
+    "node",
+    "backend/launch.mjs"
+  ],
+  "environmentKeys": [
+    "PATH",
+    "LANG",
+    "TZ",
+    "YANYU_DATA_DIR",
+    "YANYU_PORT"
+  ],
+  "requests": [
+    {
+      "path": "/",
+      "status": 200,
+      "file": "dist/index.html",
+      "bytes": 371,
+      "expectedSha256": "ac20b2ddc4d59b6e332b382c828457cddb184bfcc3ee06f5e3da2c64b60b63c1",
+      "actualSha256": "ac20b2ddc4d59b6e332b382c828457cddb184bfcc3ee06f5e3da2c64b60b63c1"
+    },
+    {
+      "path": "/assets/index-CH0rOcH-.js",
+      "status": 200,
+      "file": "dist/assets/index-CH0rOcH-.js",
+      "bytes": 1081671,
+      "expectedSha256": "01b1d160e627b109735e8df1ef07049064bcb1711ec3992ef8d4167aaf29c443",
+      "actualSha256": "01b1d160e627b109735e8df1ef07049064bcb1711ec3992ef8d4167aaf29c443"
+    },
+    {
+      "path": "/assets/index-B1ucU-x1.css",
+      "status": 200,
+      "file": "dist/assets/index-B1ucU-x1.css",
+      "bytes": 99140,
+      "expectedSha256": "eb1380a36814e94c576db7c40f54cfb1ac5a71a653aa4ccd99393af2cf35b543",
+      "actualSha256": "eb1380a36814e94c576db7c40f54cfb1ac5a71a653aa4ccd99393af2cf35b543"
+    }
+  ],
+  "failure": null,
+  "shutdown": {
+    "code": 0,
+    "signal": null
+  },
+  "backendShutdown": {
+    "exit": {
+      "code": 0,
+      "signal": null
+    },
+    "directExitConfirmed": true,
+    "group": "absent",
+    "errors": [],
+    "descendants": "not-proven; escaped/detached descendants are outside this receipt"
+  },
+  "storageDisposition": "Fresh synthetic persistent storage retained by design outside the publication staging; no storage copied",
+  "browserValidated": false,
+  "businessFlowValidated": false
+}

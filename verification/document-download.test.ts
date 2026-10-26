@@ -1,0 +1,42 @@
+import {afterEach,beforeEach,expect,it,vi} from 'vitest';
+import {createHash,webcrypto} from 'node:crypto';
+import {bindDocumentDownload,verifyDocumentDownload,DocumentDownloadError,DOCUMENT_DOWNLOAD_LIMIT} from '../candidate/src/components/document-download';
+const scope='70000000-0000-4000-8000-000000000007',other='80000000-0000-4000-8000-000000000008';
+const id='11111111-1111-4111-8111-111111111111';
+const bytes=new TextEncoder().encode('original');
+const hash=(data:Uint8Array)=>createHash('sha256').update(data).digest('hex');
+const metadata={id,format:'md',bytes:bytes.length,sha256:hash(bytes)};
+const binding=()=>bindDocumentDownload(metadata,scope);
+const headers=()=>({'Content-Type':'application/octet-stream','Content-Length':String(bytes.length),'X-Document-Sha256':metadata.sha256,'X-Document-Store-Id':scope});
+const response=(body:BodyInit|null=bytes,init:ResponseInit={})=>new Response(body,{...init,headers:init.headers??headers()});
+const deferred=<T,>()=>{let resolve!:(v:T)=>void;const promise=new Promise<T>(r=>resolve=r);return {promise,resolve}};
+beforeEach(()=>vi.stubGlobal('crypto',webcrypto));afterEach(()=>{vi.restoreAllMocks();vi.unstubAllGlobals()});
+it.each(['txt','md','pdf'])('accepts exact %s original without inspecting source text',async format=>{
+ const value=bindDocumentDownload({...metadata,format},scope);const blob=await verifyDocumentDownload(response(),value);expect(blob.size).toBe(bytes.length);expect(blob.type).toBe('application/octet-stream');expect(Object.isFrozen(value)).toBe(true);
+});
+it.each([null,[],{}, {...metadata,id:'../bad'}, {...metadata,format:'html'}, {...metadata,bytes:0}, {...metadata,bytes:-1},{...metadata,bytes:1.5},{...metadata,bytes:Number.MAX_SAFE_INTEGER+1},{...metadata,bytes:DOCUMENT_DOWNLOAD_LIMIT+1},{...metadata,bytes:'8'},{...metadata,sha256:'a'.repeat(63)},{...metadata,sha256:'A'.repeat(64)}])('rejects invalid metadata before reading: %#',value=>expect(()=>bindDocumentDownload(value,scope)).toThrow(DocumentDownloadError));
+it.each([undefined,null,'',other.toUpperCase().replace('8','G'),'../scope',scope+', '+other])('rejects invalid store scope %#',value=>expect(()=>bindDocumentDownload(metadata,value)).toThrow(DocumentDownloadError));
+it.each([201,202,204,206,400,403,404,409,500])('rejects HTTP %i before trusting bytes',async status=>{
+ await expect(verifyDocumentDownload(response(status===204?null:bytes,{status}),binding())).rejects.toBeInstanceOf(DocumentDownloadError);
+});
+it('rejects redirected response even when final bytes and headers match',async()=>{const r=response();Object.defineProperty(r,'redirected',{value:true});await expect(verifyDocumentDownload(r,binding())).rejects.toThrow()});
+it.each([
+ ['Content-Type',null],['Content-Type','text/html'],['Content-Type','application/octet-stream; charset=UTF-8'],
+ ['Content-Length',null],['Content-Length','0'],['Content-Length','08'],['Content-Length','8.0'],['Content-Length','9'],['Content-Length','7'],['Content-Length','8, 8'],['Content-Length','9007199254740993'],
+ ['X-Document-Sha256',null],['X-Document-Sha256','b'.repeat(64)],['X-Document-Sha256',metadata.sha256+', '+metadata.sha256],
+ ['X-Document-Store-Id',null],['X-Document-Store-Id',other],['X-Document-Store-Id',scope+', '+scope],['Content-Encoding','gzip']
+])('rejects inconsistent response header %s=%s',async(key,value)=>{const h=new Headers(headers());if(value===null)h.delete(key!);else h.set(key!,value);await expect(verifyDocumentDownload(response(bytes,{headers:h}),binding())).rejects.toThrow(DocumentDownloadError)});
+it.each([new Uint8Array(),bytes.slice(0,-1),new TextEncoder().encode('different'),new TextEncoder().encode('originaL')])('rejects body length or digest mismatch %#',async body=>{await expect(verifyDocumentDownload(response(body),binding())).rejects.toThrow(DocumentDownloadError)});
+it('rejects missing body',async()=>await expect(verifyDocumentDownload(response(null),binding())).rejects.toThrow(DocumentDownloadError));
+it('accepts multiple byte chunks including zero length chunks',async()=>{const body=new ReadableStream({start(c){c.enqueue(bytes.slice(0,2));c.enqueue(new Uint8Array());c.enqueue(bytes.slice(2));c.close()}});expect((await verifyDocumentDownload(response(body),binding())).size).toBe(8)});
+it('cancels overrun before asking for another chunk',async()=>{const cancel=vi.fn(),pull=vi.fn(c=>c.enqueue(new Uint8Array(9)));const body=new ReadableStream({pull,cancel},{highWaterMark:0});await expect(verifyDocumentDownload(response(body),binding())).rejects.toThrow();expect(pull).toHaveBeenCalledTimes(1);expect(cancel).toHaveBeenCalledTimes(1)});
+it('cancels rejected headers without consuming stream',async()=>{const cancel=vi.fn(),pull=vi.fn();const body=new ReadableStream({pull,cancel},{highWaterMark:0});await expect(verifyDocumentDownload(response(body,{status:409}),binding())).rejects.toThrow();expect(pull).not.toHaveBeenCalled();expect(cancel).toHaveBeenCalledTimes(1)});
+it('replaces a stream error containing sensitive text with fixed local text',async()=>{const body=new ReadableStream({start(c){c.error(Error('secret credential path'))}});try{await verifyDocumentDownload(response(body),binding());throw Error('expected rejection')}catch(e){expect(e).toBeInstanceOf(DocumentDownloadError);expect(String(e)).not.toContain('secret');expect((e as Error).cause).toBeUndefined()}});
+it('rejects non-byte chunks safely',async()=>{const body=new ReadableStream({start(c){c.enqueue('not bytes');c.close()}});await expect(verifyDocumentDownload(response(body as ReadableStream<Uint8Array>),binding())).rejects.toThrow(DocumentDownloadError)});
+it('rejects pre-aborted requests and cancels body',async()=>{const controller=new AbortController();controller.abort();const cancel=vi.fn();const body=new ReadableStream({cancel});await expect(verifyDocumentDownload(response(body),binding(),controller.signal)).rejects.toThrow('下载已取消');expect(cancel).toHaveBeenCalledTimes(1)});
+it('abort cancels a pending stream read without waiting for network',async()=>{const controller=new AbortController(),started=deferred<void>(),cancel=vi.fn();const body=new ReadableStream({pull(){started.resolve()},cancel},{highWaterMark:0});const promise=verifyDocumentDownload(response(body),binding(),controller.signal);await started.promise;controller.abort();await expect(promise).rejects.toThrow('下载已取消');expect(cancel).toHaveBeenCalledTimes(1)});
+it('checks abort again after asynchronous digest',async()=>{const controller=new AbortController(),started=deferred<void>(),finish=deferred<ArrayBuffer>();vi.stubGlobal('crypto',{subtle:{digest:vi.fn(()=>{started.resolve();return finish.promise})}});const promise=verifyDocumentDownload(response(),binding(),controller.signal);await started.promise;controller.abort();finish.resolve(await webcrypto.subtle.digest('SHA-256',bytes));await expect(promise).rejects.toThrow('下载已取消')});
+it('checks current store/list generation again after asynchronous digest',async()=>{let current=true;const started=deferred<void>(),finish=deferred<ArrayBuffer>();vi.stubGlobal('crypto',{subtle:{digest:()=>{started.resolve();return finish.promise}}});const promise=verifyDocumentDownload(response(),binding(),undefined,()=>current);await started.promise;current=false;finish.resolve(await webcrypto.subtle.digest('SHA-256',bytes));await expect(promise).rejects.toThrow('下载已取消')});
+it('snapshots mutable caller metadata before reading',async()=>{const mutable={...binding()},started=deferred<void>();let finish!:ReadableStreamDefaultController<Uint8Array>;const body=new ReadableStream<Uint8Array>({start(c){finish=c;started.resolve()}});const promise=verifyDocumentDownload(response(body),mutable);await started.promise;mutable.sha256='b'.repeat(64);finish.enqueue(bytes);finish.close();expect((await promise).size).toBe(8)});
+it('accepts exact 8 MiB bound and hashes all bytes',async()=>{const data=new Uint8Array(DOCUMENT_DOWNLOAD_LIMIT),sha256=hash(data),b=bindDocumentDownload({...metadata,bytes:data.length,sha256},scope);const r=new Response(data,{headers:{...headers(),'Content-Length':String(data.length),'X-Document-Sha256':sha256}});expect((await verifyDocumentDownload(r,b)).size).toBe(DOCUMENT_DOWNLOAD_LIMIT)});
+it('uses fixed error text when digest unavailable or rejected',async()=>{vi.stubGlobal('crypto',{subtle:{digest:()=>Promise.reject(Error('secret'))}});await expect(verifyDocumentDownload(response(),binding())).rejects.toThrow('原件下载无法核验')});

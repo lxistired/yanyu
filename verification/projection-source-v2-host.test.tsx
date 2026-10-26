@@ -1,0 +1,10 @@
+import React from 'react';
+import {afterEach,expect,it,vi} from 'vitest';
+import {render,cleanup,act,screen} from '@testing-library/react';
+import {OrganizationWriteHost} from '../candidate/src/components/organization-write-host';
+import {OrganizationHostView} from '../candidate/src/components/OrganizationHostView';
+import {OrganizationManager} from '../candidate/src/components/OrganizationManager';
+vi.mock('../candidate/src/components/OrganizationManager',()=>({OrganizationManager:vi.fn(()=> <div>Test organization view</div>)}));
+afterEach(()=>{cleanup();vi.restoreAllMocks();vi.clearAllMocks();});
+it('real host always supplies explicit v2 mode and never supplies a fallback actor',()=>{const host=new OrganizationWriteHost();host.activate();render(<OrganizationHostView host={host} visible routeEpoch={1}/>);expect(screen.getByRole('status').textContent).toContain('身份范围');expect(OrganizationManager).not.toHaveBeenCalled();act(()=>{host.setAuthority('a'.repeat(64),true);});const props=vi.mocked(OrganizationManager).mock.calls.at(-1)![0];expect(props?.projection?.mode).toBe('v2');expect(host.projection?.available).toBe(true);const old=host.projection;act(()=>{host.setAuthority('a'.repeat(64),true);});expect(host.projection).not.toBe(old);expect(old?.available).toBe(false);act(()=>host.dispose());});
+it('hide or route replacement aborts projection presentation but keeps host authority generation',()=>{const host=new OrganizationWriteHost();host.activate();host.setAuthority('a'.repeat(64),true);const view=render(<OrganizationHostView host={host} visible routeEpoch={1}/>);const session=host.projection;view.rerender(<OrganizationHostView host={host} visible={false} routeEpoch={2}/>);expect(session?.available).toBe(false);view.rerender(<OrganizationHostView host={host} visible routeEpoch={3}/>);expect(host.projection).toBe(session);expect(session?.available).toBe(true);act(()=>host.dispose());});

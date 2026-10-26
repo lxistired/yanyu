@@ -1,0 +1,234 @@
+{
+  "id": "90b355ce-780e-4b76-86c0-ec4cd8e7feb6",
+  "revision": 1,
+  "state": {
+    "schema": 1,
+    "archivedAt": null,
+    "supersededByReportId": null
+  },
+  "snapshot": {
+    "schema": 1,
+    "provenance": "derived-user-recorded-service-summary",
+    "evidenceClass": "derived-artifact",
+    "generatedAt": "2026-10-15T00:00:00.000Z",
+    "generatedBySubject": "synthetic-http-owner",
+    "customer": {
+      "organizationId": "synthetic-org",
+      "contactId": null
+    },
+    "customerAtGeneration": {
+      "organizationId": "synthetic-org",
+      "contactId": null,
+      "organizationRevision": 1,
+      "contactRevision": null
+    },
+    "period": {
+      "month": "2026-10",
+      "timeZone": "UTC",
+      "membership": "local-calendar-year-month",
+      "utcMarkers": {
+        "firstInstantOfMonth": "2026-10-01T00:00:00.000Z",
+        "firstInstantOfFollowingMonth": "2026-11-01T00:00:00.000Z"
+      },
+      "tzdbVersion": "2026b"
+    },
+    "activities": [
+      {
+        "id": "4c868ccf-1768-47ce-a009-e368a1aa32f3",
+        "revision": 1,
+        "versionId": "2defcc62-2cd4-4004-bac6-09f8642eff4e",
+        "archivedAt": null,
+        "version": {
+          "schema": 1,
+          "activityId": "4c868ccf-1768-47ce-a009-e368a1aa32f3",
+          "sequence": 1,
+          "recordedAt": "2026-10-15T00:00:00.000Z",
+          "recordedBySubject": "synthetic-http-owner",
+          "customerAtRecord": {
+            "organizationId": "synthetic-org",
+            "contactId": null,
+            "organizationRevision": 1,
+            "contactRevision": null
+          },
+          "value": {
+            "customer": {
+              "organizationId": "synthetic-org",
+              "contactId": null
+            },
+            "kind": "meeting",
+            "status": "reported-completed",
+            "occurredAt": "2026-10-03T09:15:00.000Z",
+            "summary": "合成服务活动 2",
+            "references": [
+              {
+                "pin": {
+                  "documentId": "synthetic-doc",
+                  "revisionId": "v1",
+                  "tenantId": "synthetic-http-tenant",
+                  "collectionId": "synthetic-collection",
+                  "sha256": "756d2ce842542de213efd4df5ef4ec2c337a71528f68289f35cc7743e1a66292"
+                }
+              }
+            ]
+          },
+          "provenance": "user-recorded-local",
+          "correction": null
+        }
+      },
+      {
+        "id": "65fce30e-bfb5-40e4-a97a-e33b7dbf2be9",
+        "revision": 1,
+        "versionId": "37828627-48c2-471b-8fb2-d2491709b222",
+        "archivedAt": null,
+        "version": {
+          "schema": 1,
+          "activityId": "65fce30e-bfb5-40e4-a97a-e33b7dbf2be9",
+          "sequence": 1,
+          "recordedAt": "2026-10-15T00:00:00.000Z",
+          "recordedBySubject": "synthetic-http-owner",
+          "customerAtRecord": {
+            "organizationId": "synthetic-org",
+            "contactId": null,
+            "organizationRevision": 1,
+            "contactRevision": null
+          },
+          "value": {
+            "customer": {
+              "organizationId": "synthetic-org",
+              "contactId": null
+            },
+            "kind": "meeting",
+            "status": "reported-completed",
+            "occurredAt": "2026-10-03T09:15:00.000Z",
+            "summary": "合成服务活动 3",
+            "references": [
+              {
+                "pin": {
+                  "documentId": "synthetic-doc",
+                  "revisionId": "v1",
+                  "tenantId": "synthetic-http-tenant",
+                  "collectionId": "synthetic-collection",
+                  "sha256": "756d2ce842542de213efd4df5ef4ec2c337a71528f68289f35cc7743e1a66292"
+                }
+              }
+            ]
+          },
+          "provenance": "user-recorded-local",
+          "correction": null
+        }
+      },
+      {
+        "id": "f5e9142e-6941-4a77-9cf5-2a01ea80da0a",
+        "revision": 1,
+        "versionId": "f3ab3083-1cb7-4b26-bc1d-c10a51fc9653",
+        "archivedAt": null,
+        "version": {
+          "schema": 1,
+          "activityId": "f5e9142e-6941-4a77-9cf5-2a01ea80da0a",
+          "sequence": 1,
+          "recordedAt": "2026-10-15T00:00:00.000Z",
+          "recordedBySubject": "synthetic-http-owner",
+          "customerAtRecord": {
+            "organizationId": "synthetic-org",
+            "contactId": null,
+            "organizationRevision": 1,
+            "contactRevision": null
+          },
+          "value": {
+            "customer": {
+              "organizationId": "synthetic-org",
+              "contactId": null
+            },
+            "kind": "meeting",
+            "status": "reported-completed",
+            "occurredAt": "2026-10-03T09:15:00.000Z",
+            "summary": "合成服务活动 1",
+            "references": [
+              {
+                "pin": {
+                  "documentId": "synthetic-doc",
+                  "revisionId": "v1",
+                  "tenantId": "synthetic-http-tenant",
+                  "collectionId": "synthetic-collection",
+                  "sha256": "756d2ce842542de213efd4df5ef4ec2c337a71528f68289f35cc7743e1a66292"
+                }
+              }
+            ]
+          },
+          "provenance": "user-recorded-local",
+          "correction": null
+        }
+      },
+      {
+        "id": "a9cbe010-6d0a-480d-8e06-373e11e77ab8",
+        "revision": 1,
+        "versionId": "05bb560b-bad5-4595-9e74-a53f9b5c9960",
+        "archivedAt": null,
+        "version": {
+          "schema": 1,
+          "activityId": "a9cbe010-6d0a-480d-8e06-373e11e77ab8",
+          "sequence": 1,
+          "recordedAt": "2026-10-15T00:00:00.000Z",
+          "recordedBySubject": "synthetic-http-owner",
+          "customerAtRecord": {
+            "organizationId": "synthetic-org",
+            "contactId": null,
+            "organizationRevision": 1,
+            "contactRevision": null
+          },
+          "value": {
+            "customer": {
+              "organizationId": "synthetic-org",
+              "contactId": null
+            },
+            "kind": "other",
+            "status": "reported-completed",
+            "occurredAt": "2026-10-04T09:00:00.000Z",
+            "summary": "=HYPERLINK(\"https://invalid.example\",\"合成\")\n<script>alert(\"synthetic\")</script>, & \"测试\"",
+            "references": [
+              {
+                "pin": {
+                  "documentId": "synthetic-doc",
+                  "revisionId": "v1",
+                  "tenantId": "synthetic-http-tenant",
+                  "collectionId": "synthetic-collection",
+                  "sha256": "756d2ce842542de213efd4df5ef4ec2c337a71528f68289f35cc7743e1a66292"
+                }
+              }
+            ]
+          },
+          "provenance": "user-recorded-local",
+          "correction": null
+        }
+      }
+    ],
+    "totals": {
+      "metric": "owner-recorded-activities",
+      "totalRecords": 4,
+      "byKind": {
+        "content-read": 0,
+        "meeting": 3,
+        "call": 0,
+        "email": 0,
+        "research-support": 0,
+        "other": 1
+      },
+      "byStatus": {
+        "planned": 0,
+        "reported-completed": 4,
+        "cancelled": 0
+      },
+      "clientReadingVerified": false,
+      "clientAttendanceVerified": false,
+      "externalDeliveryVerified": false
+    },
+    "basisSha256": "ffaa788eea1e470dfb0e6cb0a752ae511ab16469b969a83ae913d5b2c0c5d248",
+    "supersedesReportId": null
+  },
+  "snapshotSha256": "d1201f137a146f50e849408afbc6db2ecff55937019adcaf672aeb0556a36e08",
+  "currentActivitiesChanged": false,
+  "authorization": {
+    "mode": "current-local",
+    "checkedAt": "2026-10-15T00:00:00.000Z"
+  }
+}

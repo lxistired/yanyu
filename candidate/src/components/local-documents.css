@@ -1,0 +1,68 @@
+.local-documents { max-width: 1100px; display: grid; gap: 18px; }
+.local-documents header p { max-width: 90ch; line-height: 1.6; }
+.local-documents fieldset { border: 1px solid #cbd5e1; border-radius: 12px; padding: 16px; display: grid; gap: 14px; min-width: 0; }
+.local-documents form { display: flex; flex-wrap: wrap; align-items: end; gap: 10px; }
+.local-documents label { display: grid; gap: 6px; flex: 1 1 220px; }
+.local-documents input, .local-documents select { padding: 9px; border: 1px solid #94a3b8; border-radius: 6px; min-width: 0; width: 100%; box-sizing: border-box; background: white; color: #17202f; }
+.local-documents button { border: 1px solid #94a3b8; border-radius: 7px; padding: 9px 13px; background: white; color: #17202f; cursor: pointer; }
+.local-documents button:disabled { opacity: .55; cursor: default; }
+.local-documents :focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+.local-documents [role=alert] { color: #991b1b; background: #fff1f2; padding: 12px; overflow-wrap: anywhere; }
+.local-document-list { list-style: none; padding: 0; display: grid; gap: 12px; }
+.local-document-list li, .local-document-preview { border: 1px solid #cbd5e1; padding: 16px; border-radius: 12px; min-width: 0; overflow-wrap: anywhere; }
+.local-document-list h3 { margin-top: 0; }
+.local-document-list button + button { margin-left: 8px; }
+.local-document-pagination { display: flex; gap: 10px; }
+.local-document-preview pre { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 65vh; overflow: auto; padding: 16px; background: #f1f5f9; color: #17202f; font: 14px/1.7 monospace; }
+.local-document-hash { font-size: 12px; overflow-wrap: anywhere; }
+.document-upload-recovery { display: grid; gap: 12px; min-width: 0; overflow-wrap: anywhere; }
+.document-upload-recovery > div { display: flex; flex-wrap: wrap; align-items: end; gap: 10px; border: 1px solid #94a3b8; border-radius: 10px; padding: 14px; min-width: 0; }
+.document-upload-recovery h4, .document-upload-recovery > div > p { flex-basis: 100%; margin: 0; min-width: 0; }
+.document-upload-recovery button { min-height: 44px; }
+.document-upload-recovery label { min-width: 0; }
+.pdf-page-reader { border: 1px solid #cbd5e1; border-radius: 12px; padding: 16px; min-width: 0; display: grid; gap: 12px; }
+.pdf-page-reader header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
+.pdf-page-reader header h3, .pdf-page-reader p { margin: 0; }
+.pdf-page-reader header p { flex-basis: 100%; }
+.pdf-page-count { font-weight: 600; }
+.pdf-reader-controls, .pdf-bookmark-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 10px; }
+.pdf-reader-controls form { flex: 1 1 220px; }
+.pdf-reader-controls label { flex: 0 1 140px; }
+.pdf-bookmark-controls { align-items: center; }
+.pdf-page-viewport { min-width: 0; overflow: auto; max-height: 75vh; min-height: 100px; background: #e2e8f0; border: 1px solid #cbd5e1; border-radius: 6px; }
+.pdf-page-viewport img { display: block; max-width: none; margin: 0 auto; background: white; }
+.pdf-page-viewport img[hidden] { display: none; }
+.pdf-page-reader [role=alert] button { margin: 8px; }
+.pdf-annotations { display: grid; gap: 12px; min-width: 0; }
+.pdf-annotation-toolbar, .pdf-annotation-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.pdf-annotation-toolbar h4, .pdf-annotation-editor h4 { margin: 0; }
+.pdf-annotation-page { position: relative; width: max-content; margin: 0 auto; }
+.pdf-annotation-page img { margin: 0; }
+.pdf-annotation-overlay { position: absolute; inset: 0; pointer-events: none; }
+.pdf-annotation-overlay.is-drawing { pointer-events: auto; cursor: crosshair; touch-action: none; user-select: none; }
+.pdf-annotations .pdf-annotation-rect { position: absolute; box-sizing: border-box; min-width: 0; min-height: 0; margin: 0; padding: 0; border: 2px solid #9a6700; border-radius: 0; background: #facc1533; pointer-events: auto; }
+.pdf-annotations .pdf-annotation-rect.is-selected { border-color: #1d4ed8; background: #60a5fa44; }
+.pdf-annotations .pdf-annotation-rect.is-draft { border: 2px dashed #166534; background: #4ade8033; pointer-events: none; }
+.pdf-annotation-overlay.is-drawing .pdf-annotation-rect { pointer-events: none; }
+.pdf-annotation-editor { display: grid !important; gap: 10px; border: 1px solid #94a3b8; border-radius: 8px; padding: 12px; min-width: 0; background: #f8fafc; }
+.pdf-annotation-editor label { display: grid; gap: 6px; }
+.pdf-annotation-editor textarea { box-sizing: border-box; width: 100%; min-width: 0; resize: vertical; padding: 10px; font: inherit; border: 1px solid #94a3b8; border-radius: 6px; background: white; color: #17202f; }
+.pdf-annotation-list ol { display: grid; gap: 10px; padding-left: 24px; margin: 0; }
+.pdf-annotation-list li { padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; overflow-wrap: anywhere; }
+.pdf-annotation-list li.is-selected { border-color: #1d4ed8; outline: 1px solid #1d4ed8; }
+.pdf-annotation-list .pdf-annotation-comment { white-space: pre-wrap; overflow-wrap: anywhere; margin: 8px 0; }
+.pdf-annotation-list small { display: block; margin-bottom: 8px; color: #475569; }
+
+.document-citations { min-width: 0; display: grid; gap: 10px; }
+.document-citations textarea { box-sizing: border-box; width: 100%; min-width: 0; min-height: 88px; padding: 10px; resize: vertical; font: inherit; border: 1px solid #94a3b8; border-radius: 6px; color: #17202f; background: white; }
+.document-citations button { min-height: 44px; }
+.document-citations blockquote { margin: 10px 0; padding: 10px 14px; border-left: 3px solid #94a3b8; overflow-wrap: anywhere; }
+.document-citations ul { display: grid; gap: 12px; padding-left: 24px; min-width: 0; }
+.document-citations li { min-width: 0; overflow-wrap: anywhere; }
+
+.pdf-text-find { display: grid; gap: 10px; min-width: 0; padding: 12px; border: 1px solid #94a3b8; border-radius: 8px; }
+.pdf-text-find h4 { margin: 0; }
+.pdf-text-find-controls { display: flex; flex-wrap: wrap; gap: 10px; }
+.pdf-text-find pre { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 24rem; overflow: auto; padding: 12px; background: #f1f5f9; color: #17202f; font: 14px/1.7 monospace; }
+.pdf-text-find mark { color: #422006; background: #fef08a; }
+.pdf-text-find mark.is-current { color: white; background: #1e40af; outline: 2px solid #172554; }

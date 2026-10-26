@@ -1,0 +1,1 @@
+{"extends":"../tsconfig.json","include":["../candidate/src/components/LocalTranscription.tsx","../assets.d.ts"]}

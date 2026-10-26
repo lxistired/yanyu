@@ -1,0 +1,99 @@
+{
+  "at": "2026-10-26T02:54:36.564Z",
+  "method": "No-write Vite replay with current unchanged config and guard; all output bytes identical to npm run build artifacts",
+  "outputs": [
+    {
+      "file": "assets/index-CH0rOcH-.js",
+      "sha256": "01b1d160e627b109735e8df1ef07049064bcb1711ec3992ef8d4167aaf29c443",
+      "bytes": 1081671,
+      "byteIdentical": true
+    },
+    {
+      "file": "assets/index-B1ucU-x1.css",
+      "sha256": "eb1380a36814e94c576db7c40f54cfb1ac5a71a653aa4ccd99393af2cf35b543",
+      "bytes": 99140,
+      "byteIdentical": true
+    },
+    {
+      "file": "assets/pcm-capture-worklet-DLktj4-U.js",
+      "sha256": "70333aebddb5448050793042bed4082804bcb0132ae5961af8c0dcf713ceb3e6",
+      "bytes": 2761,
+      "byteIdentical": true
+    },
+    {
+      "file": "index.html",
+      "sha256": "ac20b2ddc4d59b6e332b382c828457cddb184bfcc3ee06f5e3da2c64b60b63c1",
+      "bytes": 371,
+      "byteIdentical": true
+    }
+  ],
+  "packages": [
+    {
+      "name": "lucide-react",
+      "version": "1.57.0",
+      "license": "ISC",
+      "notice": "THIRD_PARTY_NOTICES/lucide-react-LICENSE.txt"
+    },
+    {
+      "name": "react",
+      "version": "19.3.0",
+      "license": "MIT",
+      "notice": "THIRD_PARTY_NOTICES/react-LICENSE.txt"
+    },
+    {
+      "name": "react-dom",
+      "version": "19.3.0",
+      "license": "MIT",
+      "notice": "THIRD_PARTY_NOTICES/react-dom-LICENSE.txt"
+    },
+    {
+      "name": "scheduler",
+      "version": "0.28.0",
+      "license": "MIT",
+      "notice": "THIRD_PARTY_NOTICES/scheduler-LICENSE.txt"
+    }
+  ],
+  "virtualModules": [
+    {
+      "id": "\u0000rolldown/runtime.js",
+      "renderedLength": 1175
+    },
+    {
+      "id": "\u0000vite/modulepreload-polyfill.js",
+      "renderedLength": 1205
+    }
+  ],
+  "notices": [
+    {
+      "path": "THIRD_PARTY_NOTICES/lucide-react-LICENSE.txt",
+      "bytes": 3208,
+      "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/react-LICENSE.txt",
+      "bytes": 1088,
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/react-dom-LICENSE.txt",
+      "bytes": 1088,
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/rolldown-LICENSE.txt",
+      "bytes": 1302,
+      "sha256": "23ecfff35a5a2e80d92142f75228912c3b1abc4b5a8337a821ff4397e2f9f734"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/scheduler-LICENSE.txt",
+      "bytes": 1088,
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES/vite-LICENSE.md",
+      "bytes": 108786,
+      "sha256": "a47172e44a86a7e2cd1c16282341f7726ec60caafe3a6166fe3e0602005b6fa6"
+    }
+  ],
+  "note": "All actual bundled application npm modules have their original package license notices. Exact installed Vite/Rolldown license texts are also preserved for the rendered generated helpers. Lockfile-only packages are not asserted to be bundled. This is composition evidence, not legal clearance."
+}

@@ -1,0 +1,1 @@
+{"extends":"./tsconfig.json","include":["candidate/src/components/ManualPlanManager.tsx","candidate/src/components/manual-plan-client.ts","candidate/src/components/manual-plan-session.ts","candidate/src/components/manual-plan-host.ts","candidate/src/components/ManualPlanHostView.tsx"]}

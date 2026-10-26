@@ -1,0 +1,13 @@
+.ordinary-boundary{margin:0;padding:10px 20px;background:#fff8e8;color:#594322;font-size:13px;line-height:1.6}.ordinary-tools,.ordinary-settings,.ordinary-home{display:flex;gap:10px;flex-wrap:wrap}.ordinary-home{align-items:flex-start}.ordinary-home h2,.ordinary-home p{flex-basis:100%;margin:0}.ordinary-tools button,.ordinary-settings button,.ordinary-home button{padding:10px 14px;border:1px solid #cbd5d0;border-radius:10px;background:white;color:#244338;cursor:pointer}.ordinary-settings [aria-current=page]{background:#e1eee8;border-color:#779a89}.ordinary-policy{font-size:13px;line-height:1.7;color:#617069;max-width:850px}.rs-main>h1:focus{outline:2px solid #7b9c8b;outline-offset:4px}.rs-main [hidden]{display:none!important}@media(max-width:600px){.ordinary-boundary{padding:8px 12px}.ordinary-tools{gap:6px}.ordinary-tools button{font-size:12px;padding:8px}.ordinary-policy{font-size:12px}.ordinary-settings button{flex:1 1 40%}}
+.rs-shell .rs-main{padding:24px 32px 40px}.rs-shell .rs-main>h1{margin:20px 0 12px;max-width:fit-content}.ordinary-policy{margin:0 0 24px}.ordinary-settings{margin-bottom:24px}@media(max-width:700px){.rs-shell .rs-main{padding:16px 20px calc(100px + env(safe-area-inset-bottom,0px))}.rs-shell .rs-main>h1{margin-top:16px}.ordinary-policy{margin-bottom:20px}}
+
+/* The inventory entry participates in flow: never covers mobile navigation/help. */
+.local-inventory-entry {padding:8px 16px; background:#e9f2f7; display:flex; justify-content:flex-end;}
+.local-inventory-entry button {font:inherit; min-height:44px; padding:8px 12px; border:1px solid #94a3b8; border-radius:8px; background:white; color:#172d29;}
+.rs-main {overflow-wrap:anywhere;}
+.rs-main input, .rs-main select, .rs-main textarea {max-width:100%;}
+@media(max-width:600px){.ordinary-tools button {font-size:14px; min-height:44px;} .ordinary-policy {font-size:14px;} .rs-shell .rs-main {padding-left:14px;padding-right:14px;} .local-inventory-entry {justify-content:stretch;} .local-inventory-entry button {width:100%;}}
+/* Override inherited generic nav/sidebar button layout at this standalone entry. */
+nav.local-inventory-entry {padding-left:240px; display:flex; flex-direction:row;}
+nav.local-inventory-entry button {flex:0 1 auto; width:auto; text-align:center; justify-content:center; font-size:16px;}
+@media(max-width:700px){nav.local-inventory-entry {padding-left:16px;} nav.local-inventory-entry button {width:100%;}}

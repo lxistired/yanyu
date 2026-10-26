@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-26",
+  "scope": "Independent public staging only; integration unchanged",
+  "approval": "Parent-authorized narrow removal of private dataset binding, no new live provider",
+  "sourceChanges": [
+    "backend/jp-private-provider.mjs",
+    "backend/synthetic-jp-fixture.mjs",
+    "backend/test-jp-private-provider.mjs",
+    "candidate/src/adapters/private-company-data.ts",
+    "candidate/src/components/PrivateCompanyData.tsx",
+    "verification/private-company-data.test.tsx",
+    "candidate/src/components/OrdinaryNavigationShell.tsx"
+  ],
+  "metadataChange": "BUILD_INPUTS.json: exact hashes updated only for two private-company frontend inputs and two-copy-only Shell correction",
+  "removedClasses": [
+    "fixed private snapshot digest",
+    "real company identity mapping",
+    "date/year-specific private schema labels"
+  ],
+  "retained": [
+    "five fictional synthetic issuer partitions",
+    "exact TEXT schema matching",
+    "readOnly immutable SQLite and query_only/trusted_schema protections",
+    "explicit expected content hash and snapshot pin",
+    "bounded pagination and fixed routes",
+    "no arbitrary environment-configured files",
+    "frontend entry and existing table display controls"
+  ],
+  "environmentPolicy": "No JP_PRIVATE_* key: disabled; any such key in provider environment: CONFIG_REJECTED",
+  "validation": "After narrow source redaction: provider safety check, private UI/transport (2 suites,34 tests), current core UI (12 suites,300 tests), typecheck, build and local static service passed. After final two Shell-copy corrections: navigation (2 suites,25 tests), typecheck, build and static service rerun passed. No browser/device claim.",
+  "scan": {
+    "private_snapshot_or_issuer": {
+      "files": [],
+      "count": 0
+    },
+    "dated_private_columns": {
+      "files": [],
+      "count": 0
+    },
+    "private_library_identity": {
+      "files": [],
+      "count": 0
+    },
+    "known_secret_shapes": {
+      "files": [],
+      "count": 0
+    }
+  },
+  "finalBuildBinding": "CURRENT_BUILD.json"
+}

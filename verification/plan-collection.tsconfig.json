@@ -1,0 +1,1 @@
+{"extends":"../tsconfig.json","include":["../candidate/src/components/ManualPlanManager.tsx","../candidate/src/components/LocalResearchSearch.tsx","../verification/plan-material-collection-ui.test.tsx","../verification/manual-plan-transport.test.ts","../assets.d.ts"]}

@@ -1,0 +1,116 @@
+{
+  "files": [
+    {
+      "path": "server/workspace-domain.ts",
+      "sha256": "7663b7bcc7067f5c7e2909949cbd1f259c8e2eb04c0d13e0f89917ef9123d78c",
+      "source": "yanyu-recovery/ordinary-frontier-visual/candidate/server/workspace-domain.ts"
+    },
+    {
+      "path": "server/workspace-store.ts",
+      "sha256": "341c0e353650d746b9434e55b143a94ceae0f8ccf402682feb3cb8f260b0d5f3",
+      "source": "plan-session-linkage-candidate-20261023T1148Z/backend/source/server/workspace-store.ts"
+    },
+    {
+      "path": "server/request-authority.ts",
+      "sha256": "1ace9e9ea31cc4855893c35026ceb439ac1278c845d2738ce0df770e74e13ff2",
+      "source": "yanyu-recovery/ordinary-frontier-visual/candidate/server/request-authority.ts"
+    },
+    {
+      "path": "server/sqlite.ts",
+      "sha256": "41e06e66dd5f085afb52e9c61a815fffa31021fbdf4b01b13310365bd86e10ea",
+      "source": "yanyu-recovery/ordinary-frontier-visual/candidate/server/sqlite.ts"
+    },
+    {
+      "path": "server/database-path.ts",
+      "sha256": "6baa88ba147ee4f30d5eebe6ea307263827a50ec054ad452962bf501af51a315",
+      "source": "authored exact helper extraction from frozen backend/source/server/sqlite.ts"
+    },
+    {
+      "path": "server/catalog-search-corpora.ts",
+      "sha256": "3826d9167676120c21eb555da08dd13a440c3f8e929fca0a8c1961669df6bad0",
+      "source": "yanyu-recovery/ordinary-frontier-visual/candidate/server/catalog-search-corpora.ts"
+    },
+    {
+      "path": "shared/contracts.ts",
+      "sha256": "2905bd305b2fdf67e67471f0a49b55add11788882444c3c08a15f540055ecba1",
+      "source": "yanyu-recovery/ordinary-frontier-visual/candidate/shared/contracts.ts"
+    },
+    {
+      "path": "shared/catalog-search.ts",
+      "sha256": "2da46b1ced4eefa278a8c9b056cbe253c6565f04a1efc8ae17fc527883b09a34",
+      "source": "yanyu-recovery/ordinary-frontier-visual/candidate/shared/catalog-search.ts"
+    },
+    {
+      "path": "server/organization-domain.ts",
+      "sha256": "7cd92a408a0b989a0e6d0e07a72bd7835a9b0cda3fa8051d85e8e1b87eb16ea5",
+      "source": "meeting-reminder-preference-20261023T2348Z/backend/source/server/organization-domain.ts"
+    },
+    {
+      "path": "server/service-report-domain.ts",
+      "sha256": "f739c2e060804f507cd95f44fcee99aa420447033ac415de4cdf5230111ba516",
+      "source": "Authored additive trusted projection request budget and absolute deadline; default domain behavior preserved"
+    },
+    {
+      "path": "server/service-report-store.ts",
+      "sha256": "3dbde036e928f4b00651f12d8afcd42ec9e73d0de4f2a4aa0b2a533b6fb084a1",
+      "source": "yanyu-recovery/ordinary-frontier-visual/service-report-persistence-evidence/source/server/service-report-store.ts"
+    },
+    {
+      "path": "server/service-report-month.ts",
+      "sha256": "c09e9b3e3b1ad3910595f3690f4e1b4e6d37ceff0d252f3a0a2ddf3a78345633",
+      "source": "yanyu-recovery/ordinary-frontier-visual/service-report-persistence-evidence/source/server/service-report-month.ts"
+    },
+    {
+      "path": "server/service-report-render.ts",
+      "sha256": "23068aeed57621d8007c56aaeb0a351304eeb175560ca3d6d0bd34ccac731279",
+      "source": "yanyu-recovery/ordinary-frontier-visual/service-report-persistence-evidence/source/server/service-report-render.ts"
+    },
+    {
+      "path": "shared/service-reports.ts",
+      "sha256": "a63908c6cddf19a979d9f64693ff68be388028ca129c19306c38da690a0bd3ef",
+      "source": "yanyu-recovery/ordinary-frontier-visual/candidate/shared/service-reports.ts"
+    },
+    {
+      "path": "shared/reader-reference.ts",
+      "sha256": "e9a2797e7d8c11afae4dbb6d5ba19c6e37dde8fc4b2034cca478cb8258a50497",
+      "source": "yanyu-recovery/ordinary-frontier-visual/candidate/shared/reader-reference.ts"
+    },
+    {
+      "path": "server/automation-domain.ts",
+      "sha256": "a1e9125e7eba85282fed077a7fa0e42f31e10d8168bba7313bc130e6f458e7d5",
+      "source": "manual-inventory-backend-candidate-20261022/backend/source/server/automation-domain.ts"
+    },
+    {
+      "path": "server/manual-plan-domain.ts",
+      "sha256": "4110a4fc6c9eeac11065ce0ea52c8021501978cd07a8743ebc16e0de1b6f3755",
+      "source": "plan-linked-session-read-20261023T1822Z/backend/source/server/manual-plan-domain.ts"
+    },
+    {
+      "path": "shared/manual-plans.ts",
+      "sha256": "7493acb1ba54aa8c4af12510a92fdca481a19b18199c8a53134ac9162e726469",
+      "source": "plan-linked-session-read-20261023T1822Z/backend/source/shared/manual-plans.ts"
+    },
+    {
+      "path": "shared/organization-command-outcome.ts",
+      "sha256": "6b0765423aca8b36bba52ebf846b97798356e23d6bc357554a35cb68729a78c6"
+    },
+    {
+      "path": "shared/automation-command-outcome.ts",
+      "sha256": "44b8fae5d6c1228e5cbc1e92479770f516b7728b643c5620169019fbf7e530b0"
+    },
+    {
+      "path": "shared/workspace-command-outcome.ts",
+      "sha256": "af13f1f1853f2fc39cccdc37a8ae0d83dd6f4d32b36d193fcb71d7845eecae8f"
+    },
+    {
+      "path": "shared/manual-inventory-protocol.ts",
+      "sha256": "9b9965c835b0e13856bbe98653ac9e886f0a01b3d2b45258c9c72a7761751461",
+      "source": "local-automation-inventory-protocol-candidate-20261022/backend/source/shared/manual-inventory-protocol.ts"
+    },
+    {
+      "path": "server/manual-inventory-domain.ts",
+      "sha256": "1bba516b4f630eea82c29fbf3bc43c148a3fff404e76c52a58ab42e61269d955",
+      "source": "manual-inventory-backend-candidate-20261022/backend/source/server/manual-inventory-domain.ts"
+    }
+  ]
+}

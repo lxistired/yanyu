@@ -1,0 +1,117 @@
+{
+  "date": "2026-10-26",
+  "scope": "Public-redacted staging checks are separated from prior integration-only evidence and final navigation-copy rechecks.",
+  "checks": [
+    {
+      "name": "current-core-explicit-ui",
+      "files": [
+        "verification/local-plan-walkthrough.test.tsx",
+        "verification/bounded-transport.test.ts",
+        "verification/inventory-schedules.test.tsx",
+        "verification/pdf-text-find.test.tsx",
+        "verification/pdf-page-reader.test.tsx",
+        "verification/pdf-annotations.test.tsx",
+        "verification/manual-plan-host.test.tsx",
+        "verification/pdf-open-navigation.test.tsx",
+        "verification/pdf-open-shell-receiver.test.tsx",
+        "verification/pdf-open-component-convergence.test.tsx",
+        "verification/pdf-image-binding.test.tsx",
+        "verification/pdf-store-scope.test.tsx"
+      ],
+      "suites": 12,
+      "tests": 300,
+      "exitCode": 0,
+      "runtime": "React/JSDOM with synthetic transport",
+      "note": "Same exact 12-file subset rerun through public draft npm test; 300 passed. Final two copy-only Shell changes receive separate navigation recheck, not a claim all tests reran again.",
+      "phase": "public-redaction-before-final-two-Shell-text-changes"
+    },
+    {
+      "name": "main-operations-ui",
+      "files": [
+        "verification/plan-materials-flow.test.tsx",
+        "verification/plan-material-collection-ui.test.tsx",
+        "verification/plan-session-link-ui.test.tsx",
+        "verification/plan-conversation-handoff.test.tsx",
+        "verification/automation-execution-preview.test.tsx",
+        "verification/calendar-return-context.test.tsx",
+        "verification/meeting-reminder-preview.test.tsx",
+        "verification/recording-transcript-continuity.test.tsx"
+      ],
+      "suites": 8,
+      "tests": 57,
+      "exitCode": 0,
+      "runtime": "React/JSDOM with synthetic fixtures",
+      "phase": "prior-integration-before-public-redaction",
+      "note": "Relevant application component files were not edited by redaction; not upgraded into final public-build full dependency-closure or end-to-end proof."
+    },
+    {
+      "name": "document-operations-ui",
+      "files": [
+        "verification/local-documents.test.tsx",
+        "verification/primary-document-return-diagnostic.test.tsx",
+        "verification/document-citations.test.tsx"
+      ],
+      "suites": 3,
+      "tests": 34,
+      "exitCode": 0,
+      "runtime": "React/JSDOM; PDF display/native selection not real browser",
+      "phase": "prior-integration-before-public-redaction",
+      "note": "Relevant application component files were not edited by redaction; not upgraded into final public-build full dependency-closure or end-to-end proof."
+    },
+    {
+      "name": "application-typecheck",
+      "exitCode": 0,
+      "phase": "final-public-Shell-copy"
+    },
+    {
+      "name": "application-build",
+      "exitCode": 0,
+      "phase": "final-public-Shell-copy"
+    },
+    {
+      "name": "draft-manifest-verifier",
+      "tests": 8,
+      "exitCode": 0,
+      "runtime": "Node built-in test runner, temporary synthetic files only"
+    },
+    {
+      "name": "public-synthetic-provider-security",
+      "phase": "public-redaction",
+      "exitCode": 0,
+      "scope": "Exact TEXT schema, readonly SQLite, issuer partitioning, hashes/pins, routes/pagination, any JP_PRIVATE_* configuration fail-closed"
+    },
+    {
+      "name": "public-private-company-ui-transport",
+      "phase": "public-redaction",
+      "suites": 2,
+      "tests": 34,
+      "exitCode": 0,
+      "files": [
+        "verification/private-company-data.test.tsx",
+        "verification/private-company-transport.test.ts"
+      ]
+    },
+    {
+      "name": "final-navigation-copy",
+      "phase": "final-public-Shell-copy",
+      "suites": 2,
+      "tests": 25,
+      "exitCode": 0,
+      "files": [
+        "verification/navigation.test.tsx",
+        "verification/help-capability-shell.test.tsx"
+      ],
+      "note": "Exact executed file list is retained in independent reviewer logs; final source/build binding in CURRENT_BUILD.json"
+    }
+  ],
+  "notValidated": [
+    "legacy-default-full-suite",
+    "real-browser-page",
+    "complete-business-HTTP-chain",
+    "target-device",
+    "original-visual-parity",
+    "microphone-and-playback",
+    "real-ASR-quality",
+    "external-AI-and-notification"
+  ]
+}

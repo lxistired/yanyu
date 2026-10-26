@@ -1,0 +1,1 @@
+export default {build:{outDir:'status-filter-build',lib:{entry:'candidate/src/components/LocalTranscription.tsx',formats:['es'],fileName:'local-transcription'},rollupOptions:{external:['react','react/jsx-runtime']}},oxc:{jsx:{runtime:'automatic'}}};

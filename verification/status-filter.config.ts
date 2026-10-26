@@ -1,0 +1,1 @@
+export default {test:{environment:'jsdom',include:['verification/transcription-status-filter.test.tsx','verification/transcription-library.test.tsx','verification/transcript-metadata-guards.test.tsx','verification/transcript-relationships.test.tsx','verification/selected-upload-guard.test.tsx','verification/local-transcription.test.tsx'],maxWorkers:1,watch:false}};

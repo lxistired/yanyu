@@ -1,0 +1,34 @@
+import React from 'react';
+import {it,expect,vi,afterEach} from 'vitest';
+import {render,screen,cleanup,waitFor,fireEvent} from '@testing-library/react';
+import {AutomationManager} from '../candidate/src/components/AutomationManager';
+import {boundedTransport} from '../visual-harness/bounded-transport';
+import {OrdinaryRequestLifetime} from '../candidate/src/components/ordinary-navigation';
+afterEach(()=>{cleanup();vi.unstubAllGlobals()});
+const skill={id:'skill',revision:1,deletedAt:null,data:{name:'Test skill',enabled:true,handler:'local-checkpoint',description:''},availability:{status:'available',code:'local_only',detail:'fixture',capabilities:['local-checkpoint']}};
+const schedule={id:'schedule',revision:1,deletedAt:null,data:{name:'Test definition',skillId:'skill',sourceIds:[],instructions:'',cadence:{kind:'daily',time:'09:00',timezone:'UTC'},enabled:true,state:'active',misfirePolicy:'coalesce',graceSeconds:60,nextRunAt:'2027-01-01T09:00:00.000Z',lastRunAt:null}};
+it('definition-only mode disables dispatch and immediate run even for enabled available fixture skill',async()=>{
+ const fetch=vi.fn(async(input:string)=>new Response(JSON.stringify(input.endsWith('listSkills')?[skill]:input.endsWith('listSchedules')?[schedule]:[]),{status:200}));vi.stubGlobal('fetch',fetch);
+ render(<AutomationManager definitionsOnly/>);
+ await screen.findByRole('heading',{name:'Test definition'});
+ expect((screen.getByRole('button',{name:'检查到期任务'}) as HTMLButtonElement).disabled).toBe(true);
+ expect((screen.getByRole('button',{name:'立即创建运行'}) as HTMLButtonElement).disabled).toBe(true);
+ fireEvent.click(screen.getByRole('button',{name:'立即创建运行'}));fireEvent.click(screen.getByRole('button',{name:'检查到期任务'}));
+ expect(fetch.mock.calls.some(([url])=>/runNow|dispatchDue/.test(url))).toBe(false);
+ expect(screen.getByText(/下一次时间仅为定义计算/)).toBeTruthy();
+ expect(screen.getByText(/终止或删除日程仍会将该日程已有未结束运行标为取消/)).toBeTruthy();
+ expect(screen.queryByText(/暂停、恢复和删除仅修改/)).toBeNull();
+ fireEvent.click(screen.getByRole('button',{name:'删除 Test definition'}));
+ expect(screen.getByRole('dialog').textContent).toContain('终止或删除日程仍会将该日程已有未结束运行标为取消');
+ expect(screen.getByRole('dialog').textContent).toContain('恢复后未启用并处于暂停');
+ fireEvent.click(screen.getByRole('button',{name:'返回',exact:true}));
+ fireEvent.click(screen.getByRole('button',{name:'编辑 Test definition'}));
+ expect(screen.getByLabelText('启用定义偏好（通用任务与定时执行未接通）')).toBeTruthy();
+ fireEvent.click(screen.getByRole('button',{name:'关闭',exact:true}));
+ await waitFor(()=>expect(screen.queryByRole('heading',{name:'编辑任务'})).toBeNull());
+});
+it.each(['dispatchDue','runNow','retryRun','cancelRun','executeLocalRun','claimLocalRun','getRun','markNotificationRead'])('blocks execution path %s without synthetic fallback',async(op)=>{
+ const native=vi.fn();const transport=boundedTransport(new OrdinaryRequestLifetime(),native);
+ const result=await transport('/api/automation/'+op,{method:'POST',body:'{}'});
+ expect(result.status).toBe(503);expect(native).not.toHaveBeenCalled();
+});

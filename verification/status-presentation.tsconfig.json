@@ -1,0 +1,1 @@
+{"extends":"../tsconfig.json","include":["../candidate/src/components/LocalTranscription.tsx","../candidate/src/components/LocalRecentMaterials.tsx","../verification/status-presentation.test.tsx","../assets.d.ts","../verification/status-presentation.d.ts"]}

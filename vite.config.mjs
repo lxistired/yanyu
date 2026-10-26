@@ -1,0 +1,18 @@
+import {defineConfig} from 'vite';
+import fs from 'node:fs';
+import path from 'node:path';
+export const deniedImport = /(?:^|\/)(?:App|main)\.[jt]sx?$|ConversationResearch|MeetingCalendar|ResearchPlanner|\.pending|integration-registry|oidc|security-key|drm|\/server\//i;
+const base=import.meta.dirname;
+const inputs=JSON.parse(fs.readFileSync(path.join(base,'BUILD_INPUTS.json'),'utf8'));
+// Exact newly reviewed component admission; historical BUILD_INPUTS remains unchanged.
+const recordingInputs=['candidate/src/components/LocalResearchSearch.tsx','candidate/src/components/local-research-search.ts','candidate/src/components/staged-status-filter/StagedStatusFilter.tsx','candidate/src/recording/validate-wav.ts','candidate/src/components/RecordingDrafts.tsx','candidate/src/recording/browser-adapter.ts','candidate/src/recording/controller.mjs','candidate/src/recording/pcm-wav.ts','candidate/src/recording/recording-draft-store.ts','candidate/src/recording/pcm-capture-worklet.js'];
+const agendaInputs=['candidate/src/components/MeetingReminderPreview.tsx','candidate/src/components/LocalMeetingAgenda.tsx','candidate/src/components/local-meeting-agenda.ts'];
+const transcriptionDateInputs=['candidate/src/components/transcription-created-date.mjs'];
+const pdfStoreInputs=['candidate/src/components/pdf-store-scope.ts'];
+// Exact reviewed extracted-text find inputs; do not widen the import guard.
+const pdfFindInputs=['candidate/src/components/PdfTextFind.tsx','candidate/src/components/pdf-text-find.ts'];
+const recentMaterialsInputs=['candidate/src/components/LocalRecentMaterials.tsx'];
+const transcriptionStoreClientInputs=['candidate/src/components/external-transcription-source.ts','candidate/src/components/TranscriptionStoreBoundary.tsx','candidate/src/components/transcription-store-session.ts'];
+const automationPreviewInputs=['candidate/src/components/AutomationExecutionPreview.tsx','candidate/src/components/AutomationRunResult.tsx'];
+const admitted=new Set([path.join(base,'candidate/src/components/ManualPlanLinkedSession.tsx'),path.join(base,'candidate/src/components/ManualPlanMaterialCollection.tsx'),path.join(base,'candidate/src/components/LocalPlanWalkthrough.tsx'),...automationPreviewInputs.map(x=>path.join(base,x)),...transcriptionStoreClientInputs.map(x=>path.join(base,x)),...transcriptionDateInputs.map(x=>path.join(base,x)),...pdfStoreInputs.map(x=>path.join(base,x)),...pdfFindInputs.map(x=>path.join(base,x)),...recentMaterialsInputs.map(x=>path.join(base,x)),...agendaInputs.map(x=>path.join(base,x)),...recordingInputs.map(x=>path.join(base,x)),...inputs.pins.map(x=>path.resolve(base,x.dest.replace(/^bounded\//,''))),path.join(base,'candidate/src/adapters/api.ts'),path.join(base,'candidate/src/components/FailedTranscriptionRetry.tsx')]);
+export default defineConfig({cacheDir:'.reminder-preview-cache/vite',server:{host:'127.0.0.1',port:0,strictPort:true},plugins:[{name:'ordinary-safe-import-denyguard',resolveId(id){if(id.endsWith('/visual-harness/main.tsx'))return null;if(deniedImport.test(id))throw Error('Excluded import: '+id);},load(id){const clean=id.split('?')[0];if(clean.startsWith('/')&&!clean.includes('/node_modules/')&&!admitted.has(clean))throw Error('Unadmitted local build input: '+id);},generateBundle(_,bundle){const modules=Object.values(bundle).filter(x=>x.type==='chunk').flatMap(x=>Object.keys(x.modules));fs.writeFileSync('RUNTIME_IMPORTS.json',JSON.stringify(modules.filter(x=>!x.includes('/node_modules/')).map(x=>path.relative(base,x)),null,2));}}],build:{assetsInlineLimit:filePath=>filePath===path.join(base,'candidate/src/recording/pcm-capture-worklet.js')?false:undefined,outDir:'dist',emptyOutDir:true}});

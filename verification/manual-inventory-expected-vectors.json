@@ -1,0 +1,85 @@
+{
+  "note": "Static expected fixture values, independently specified using fixed ECMAScript-compatible arrays. No application or tests were executed.",
+  "selection": {
+    "mode": "workspace",
+    "workspaceId": null,
+    "folderId": null
+  },
+  "row": {
+    "id": "00000000-0000-4000-8000-000000000001",
+    "name": "研屿 😀.pdf",
+    "format": "pdf",
+    "bytes": 8388608,
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "textSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "createdAt": "2026-10-22T00:00:00.000Z",
+    "pages": 40,
+    "workspaceId": null,
+    "folderId": null,
+    "revision": 9007199254740991
+  },
+  "executeRequest": {
+    "protocol": "manual-inventory-v1",
+    "operationId": "33333333-3333-4333-8333-333333333333",
+    "identityScope": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "automationStoreScope": "22222222-2222-4222-8222-222222222222",
+    "documentStoreScope": "11111111-1111-4111-8111-111111111111",
+    "scheduleId": "schedule_1",
+    "scheduleRevision": 1,
+    "skillId": "skill-1",
+    "skillRevision": 9007199254740991,
+    "selection": {
+      "mode": "workspace",
+      "workspaceId": null,
+      "folderId": null
+    },
+    "inventoryDigest": "b225f1298e034a13e69013f16f5a1760fd00a1905439b39628b7f16374046058"
+  },
+  "result": {
+    "protocol": "manual-inventory-v1",
+    "resultId": "44444444-4444-4444-8444-444444444444",
+    "runId": "55555555-5555-4555-8555-555555555555",
+    "binding": {
+      "identityScope": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "automationStoreScope": "22222222-2222-4222-8222-222222222222",
+      "documentStoreScope": "11111111-1111-4111-8111-111111111111",
+      "scheduleId": "schedule_1",
+      "scheduleRevision": 1,
+      "skillId": "skill-1",
+      "skillRevision": 9007199254740991,
+      "selection": {
+        "mode": "workspace",
+        "workspaceId": null,
+        "folderId": null
+      }
+    },
+    "observedAt": "2026-10-22T00:00:00.000Z",
+    "completedAt": "2026-10-22T00:00:00.000Z",
+    "count": 1,
+    "totalBytes": 8388608,
+    "inventoryDigest": "b225f1298e034a13e69013f16f5a1760fd00a1905439b39628b7f16374046058",
+    "documents": [
+      {
+        "id": "00000000-0000-4000-8000-000000000001",
+        "name": "研屿 😀.pdf",
+        "format": "pdf",
+        "bytes": 8388608,
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "textSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "createdAt": "2026-10-22T00:00:00.000Z",
+        "pages": 40,
+        "workspaceId": null,
+        "folderId": null,
+        "revision": 9007199254740991
+      }
+    ]
+  },
+  "sourceCanonical": "[\"manual-inventory-source\",1,\"11111111-1111-4111-8111-111111111111\",[\"workspace\",null,null],[[\"00000000-0000-4000-8000-000000000001\",\"研屿 😀.pdf\",\"pdf\",8388608,\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"2026-10-22T00:00:00.000Z\",40,null,null,9007199254740991]]]",
+  "sourceSha256": "b225f1298e034a13e69013f16f5a1760fd00a1905439b39628b7f16374046058",
+  "commandCanonical": "[\"manual-inventory-command\",1,\"executeInventory\",\"33333333-3333-4333-8333-333333333333\",[\"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\",\"22222222-2222-4222-8222-222222222222\",\"11111111-1111-4111-8111-111111111111\",\"schedule_1\",1,\"skill-1\",9007199254740991,[\"workspace\",null,null],\"b225f1298e034a13e69013f16f5a1760fd00a1905439b39628b7f16374046058\"]]",
+  "commandSha256": "82246a52b82c5a9f377b72de9641d84730abbe04bb3e6489f91e7ebb36e39c98",
+  "resultSerialized": "{\"protocol\":\"manual-inventory-v1\",\"resultId\":\"44444444-4444-4444-8444-444444444444\",\"runId\":\"55555555-5555-4555-8555-555555555555\",\"binding\":{\"identityScope\":\"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\",\"automationStoreScope\":\"22222222-2222-4222-8222-222222222222\",\"documentStoreScope\":\"11111111-1111-4111-8111-111111111111\",\"scheduleId\":\"schedule_1\",\"scheduleRevision\":1,\"skillId\":\"skill-1\",\"skillRevision\":9007199254740991,\"selection\":{\"mode\":\"workspace\",\"workspaceId\":null,\"folderId\":null}},\"observedAt\":\"2026-10-22T00:00:00.000Z\",\"completedAt\":\"2026-10-22T00:00:00.000Z\",\"count\":1,\"totalBytes\":8388608,\"inventoryDigest\":\"b225f1298e034a13e69013f16f5a1760fd00a1905439b39628b7f16374046058\",\"documents\":[{\"id\":\"00000000-0000-4000-8000-000000000001\",\"name\":\"研屿 😀.pdf\",\"format\":\"pdf\",\"bytes\":8388608,\"sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"textSha256\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"createdAt\":\"2026-10-22T00:00:00.000Z\",\"pages\":40,\"workspaceId\":null,\"folderId\":null,\"revision\":9007199254740991}]}",
+  "resultBytes": 1098,
+  "resultSha256": "6e854b689f0386c15ae5c0f630e81c8586658254e99324fc8a6701f2857edeb9",
+  "emptySourceCanonical": "[\"manual-inventory-source\",1,\"11111111-1111-4111-8111-111111111111\",[\"all\",null,null],[]]"
+}

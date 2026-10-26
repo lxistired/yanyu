@@ -1,0 +1,55 @@
+[
+  {
+    "operation": "organization.create",
+    "input": {
+      "idempotencyKey": "example-1",
+      "kind": "organization",
+      "data": {
+        "name": "研究😀",
+        "tags": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    "canonical": "{\"input\":{\"data\":{\"name\":\"研究😀\",\"tags\":[\"b\",\"a\"]},\"idempotencyKey\":\"example-1\",\"kind\":\"organization\"},\"operation\":\"organization.create\",\"protocol\":1}",
+    "requestDigest": "9f9063d4c1d291405ac695b6d2b9a2ca6451e64a37ada2bf6ef2588b230f5bec"
+  },
+  {
+    "operation": "organization.update",
+    "input": {
+      "kind": "organization",
+      "id": "id-1",
+      "patch": {
+        "description": "line\n\tquote\"",
+        "website": ""
+      },
+      "expectedRevision": 1,
+      "idempotencyKey": "example-2"
+    },
+    "canonical": "{\"input\":{\"expectedRevision\":1,\"id\":\"id-1\",\"idempotencyKey\":\"example-2\",\"kind\":\"organization\",\"patch\":{\"description\":\"line\\n\\tquote\\\"\",\"website\":\"\"}},\"operation\":\"organization.update\",\"protocol\":1}",
+    "requestDigest": "cedb1de553f8b57c2973b9635cc97bb8ab4e9a15f23eea8d3757fb41d200e407"
+  },
+  {
+    "operation": "organization.remove",
+    "input": {
+      "idempotencyKey": "example-3",
+      "kind": "meeting",
+      "id": "id-2",
+      "expectedRevision": 2
+    },
+    "canonical": "{\"input\":{\"expectedRevision\":2,\"id\":\"id-2\",\"idempotencyKey\":\"example-3\",\"kind\":\"meeting\"},\"operation\":\"organization.remove\",\"protocol\":1}",
+    "requestDigest": "2ea06953db508be45771bb80b232bd422eb3898228c5b08b2467151258222b53"
+  },
+  {
+    "operation": "organization.restore",
+    "input": {
+      "kind": "meeting",
+      "id": "id-2",
+      "expectedRevision": 2,
+      "idempotencyKey": "example-4"
+    },
+    "canonical": "{\"input\":{\"expectedRevision\":2,\"id\":\"id-2\",\"idempotencyKey\":\"example-4\",\"kind\":\"meeting\"},\"operation\":\"organization.restore\",\"protocol\":1}",
+    "requestDigest": "692d838572f2313ad82460ff6582f80701573f7930eb8ea362984a7119e6b811"
+  }
+]

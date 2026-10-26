@@ -1,0 +1,22 @@
+.local-transcription {max-width:1100px; min-width:0; overflow-wrap:anywhere;}
+.local-transcription p {line-height:1.7;}
+.local-transcription button {min-height:44px; padding:8px 12px; margin:4px 6px 4px 0; border:1px solid #94a3b8; border-radius:7px; background:white; color:#172d29; font:inherit; cursor:pointer; max-width:100%; white-space:normal;}
+.local-transcription button:disabled {opacity:.55; cursor:default;}
+.local-transcription button[aria-pressed=true] {background:#e6f0e8; border-color:#245d4e;}
+.local-transcription input, .local-transcription select, .local-transcription textarea {box-sizing:border-box; max-width:100%; min-width:0; padding:9px; border:1px solid #94a3b8; border-radius:6px; background:white; color:#172d29; font:inherit;}
+.local-transcription textarea {resize:vertical;}
+.local-transcription label {display:block; margin:10px 0;}
+.local-transcription label input:not([type=checkbox]), .local-transcription label select {display:block; width:100%;}
+.local-transcription article {min-width:0;}
+.local-transcription h3 {overflow-wrap:anywhere;}
+.local-transcription [role=alert] {background:#fff1f2; color:#991b1b; padding:12px;}
+.local-transcription [role=alertdialog] {padding:16px; border:2px solid #94a3b8; border-radius:8px; background:white;}
+
+/* Transcription-only opt-in: semantic inputs stay in the tab order and labels remain clickable. */
+.local-transcription .staged-status-filter--trailing-check > label {position:relative; display:flex; align-items:center; gap:.75rem; min-height:2.75rem; color:#191A1D;}
+.local-transcription .staged-status-filter--trailing-check > label > input[type=checkbox] {position:absolute; width:1px; height:1px; margin:-1px; padding:0; border:0; overflow:hidden; clip-path:inset(50%); white-space:nowrap;}
+.local-transcription .staged-status-filter--trailing-check .staged-status-filter__text {flex:1; min-width:0;}
+.local-transcription .staged-status-filter--trailing-check input:checked ~ .staged-status-filter__text,
+.local-transcription .staged-status-filter--trailing-check .staged-status-filter__check {color:#2A66F6;}
+.local-transcription .staged-status-filter--trailing-check .staged-status-filter__check {flex:none;}
+.local-transcription .staged-status-filter--trailing-check > label:focus-within {outline:2px solid #2A66F6; outline-offset:2px;}
